@@ -7,4 +7,4 @@ imageio==2.34.0
 imageio-ffmpeg==0.4.9
 openai==1.40.2
 python-dotenv==1.0.1
-pillow<10.0
+pillow>=10.0.0

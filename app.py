@@ -3,7 +3,7 @@ from utils import generate_script, fetch_pexels_images, download_image_bytes, bu
 
 st.set_page_config(page_title="StoryShort-Lite", page_icon="🎬", layout="centered")
 
-st.title("🎬 StoryShort‑Lite (MVP)")
+st.title("🎬 StoryShort‑Lite (MVP) — Fixed Build")
 st.write("Create simple **faceless vertical videos** from a topic in minutes.")
 
 with st.expander("🔑 Configure API keys (optional)", expanded=False):
@@ -12,12 +12,9 @@ with st.expander("🔑 Configure API keys (optional)", expanded=False):
     pexels_in = st.text_input("PEXELS API Key (required to fetch images):", type="password")
     eleven_in = st.text_input("ElevenLabs API Key (optional):", type="password", help="Used for high-quality voice.")
     if st.button("Save to session"):
-        if openai_in:
-            os.environ["OPENAI_API_KEY"] = openai_in
-        if pexels_in:
-            os.environ["PEXELS_API_KEY"] = pexels_in
-        if eleven_in:
-            os.environ["ELEVENLABS_API_KEY"] = eleven_in
+        if openai_in: os.environ["OPENAI_API_KEY"] = openai_in
+        if pexels_in: os.environ["PEXELS_API_KEY"] = pexels_in
+        if eleven_in: os.environ["ELEVENLABS_API_KEY"] = eleven_in
         st.success("Saved (for this session).")
 
 topic = st.text_input("🧠 Topic", placeholder="e.g. The day Apollo 11 landed on the moon")
